@@ -79,7 +79,7 @@ nav a:hover {
 }
 /* Main content styles */
 #header {
-  background: url("assets/sven-mieke-MsCgmHuirDo-unsplash.jpg") center/cover no-repeat;
+  background: url("/assets/sven-mieke-MsCgmHuirDo-unsplash.jpg") center/cover no-repeat;
   height: 100vh;
   display: flex;
   justify-content: center;
