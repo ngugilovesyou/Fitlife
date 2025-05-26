@@ -241,8 +241,8 @@ app.post("/api/orders", async (req, res) => {
         email_address: email,
       },
       applicationContext: { 
-        return_url: "http://localhost:3000/success",
-        cancel_url: "http://localhost:3000/cancel",
+        return_url: "https://fitlife-7gmb.onrender.com/success",
+        cancel_url: "https://fitlife-7gmb.onrender.com/cancel",
       },
     };
 
