@@ -21,11 +21,14 @@ const PaypalPayment = () => {
           return;
         }
 
-        const response = await fetch("http://localhost:5000/userInfo", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch(
+          "https://fitlife-7gmb.onrender.com/userInfo",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch user details");
@@ -52,7 +55,7 @@ const PaypalPayment = () => {
   }, []);
 
   const handlePaymentSuccess = async (transactionId, userEmail) => {
-    await fetch("http://localhost:5000/update-payment-status", {
+    await fetch("https://fitlife-7gmb.onrender.com/update-payment-status", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -79,17 +82,20 @@ const PaypalPayment = () => {
             if (!user.name || !user.email || !user.membership) {
               throw new Error("User information is incomplete.");
             }
-            const response = await fetch("http://localhost:5000/api/orders", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                membership: user.membership,
-                name: user.name,
-                email: user.email,
-              }),
-            });
+            const response = await fetch(
+              "https://fitlife-7gmb.onrender.com/api/orders",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  membership: user.membership,
+                  name: user.name,
+                  email: user.email,
+                }),
+              }
+            );
 
             const orderData = await response.json();
 
@@ -111,7 +117,7 @@ const PaypalPayment = () => {
         onApprove={async (data, actions) => {
           try {
             const response = await fetch(
-              `http://localhost:5000/api/orders/${data.orderID}/capture`,
+              `https://fitlife-7gmb.onrender.com/api/orders/${data.orderID}/capture`,
               {
                 method: "POST",
                 headers: {
@@ -144,7 +150,7 @@ const PaypalPayment = () => {
 
               // Send the payment data to backend to store it
               const paymentResponse = await fetch(
-                "http://localhost:5000/capture-payment",
+                "https://fitlife-7gmb.onrender.com/capture-payment",
                 {
                   method: "POST",
                   headers: {

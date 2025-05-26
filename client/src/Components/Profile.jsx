@@ -5,7 +5,7 @@ function Profile() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/userInfo", {
+    fetch("https://fitlife-7gmb.onrender.com/userInfo", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -23,7 +23,7 @@ function Profile() {
     window.location.href = "/login"; 
   };
   const deleteUser = () => {
-    fetch("http://localhost:5000/delete", {
+    fetch("https://fitlife-7gmb.onrender.com/delete", {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -33,7 +33,7 @@ function Profile() {
       .then((data) => {
         if (data.message === "User deleted successfully") {
           alert("User deleted successfully!");
-          window.location.href = "/login"; 
+          window.location.href = "/login";
         } else {
           alert("Error deleting user.");
         }

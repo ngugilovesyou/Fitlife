@@ -101,11 +101,14 @@ function Membership() {
     if (validateStep()) {
       try {
         // Add membership to the formData before sending to the backend
-        const response = await fetch("http://localhost:5000/register", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
+        const response = await fetch(
+          "https://fitlife-7gmb.onrender.com/register",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Network response was not ok");

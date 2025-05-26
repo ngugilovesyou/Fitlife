@@ -12,7 +12,7 @@ function Dashboard() {
  }, []);
 
  const fetchUserGoal = () => {
-   fetch("http://localhost:5000/userInfo", {
+   fetch("https://fitlife-7gmb.onrender.com/userInfo", {
      method: "GET",
      headers: {
        Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -22,7 +22,7 @@ function Dashboard() {
      .then((data) => {
        setSelectedGoal(data.goals);
        setUserPlan(getPlan(data.goals));
-       setUser(data)
+       setUser(data);
      })
      .catch((error) => console.error("Error fetching user data:", error));
  };
