@@ -48,7 +48,9 @@ const pool = mysql.createPool({
 });
 
 
-
+app.get('/', (req, res)=>{
+  res.send('Server is running');
+})
 // Registration Route
 app.post('/register', async (req, res) => {
   const { name, email, phone, dob, password, membership, goals } = req.body;
